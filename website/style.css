@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+
+    --background: #121212;
+    --nav-background: #212121;
+    --content-background: #212121;
+    --text-color: #ffffff; 
+    --accent-color: #F2D648;
+    --element-color: #313131;
+    --title-color: #868686;
+}
+
+
+
+html, body {
+    width: 100%;
+    height: auto;
+
+    background-color: var(--background);
+
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+}
+
+.container {
+    height: auto;
+    width: 95%;
+    max-width: 1000px;
+    margin: auto;
+    margin-top: 50px;
+    display: grid;
+    column-gap: 10px;
+    row-gap: 10px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+    "filter game"
+    "search search";
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: auto;
+    width: 100%;
+
+    background-color: var(--nav-background);
+}
+
+ul {
+    list-style-type: none;
+}
+
+.nav li {
+    display: inline-block;
+}
+
+.nav li a {
+    display: inline-block;
+    padding: 20px 20px;
+    color: var(--text-color);
+    text-decoration: none;
+
+    transition: background-color .2s cubic-bezier(.8,.18,.22,.96), color .2s cubic-bezier(.8,.18,.22,.96);
+}
+
+.nav li:hover a {
+    color: black !important; 
+    background-color: var(--accent-color);
+}
+
+.nav li a:visited {
+    color: var(--text-color);
+}
+
+.nav img {
+    height: 30px;
+    padding: 10px 10px;
+}
+
+.content {
+    width: 100%;
+    background-color: var(--content-background);
+    border-radius: 5px;
+    color: var(--text-color);
+}
+
+.filter {
+    grid-area: filter;
+}
+
+h1, h2 {
+    padding: 20px 20px 10px 20px;
+    font-weight: 300;
+}
+
+.input_keyword {
+    padding: 10px 20px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: auto;
+}
+
+.input_keyword input {
+    width: 100%;
+    padding: 10px 20px;
+    outline: 3px solid var(--element-color);
+    box-sizing: border-box;
+}
+
+.input_keyword input::placeholder {
+    font-family: 'Poppins', sans-serif;
+}
+
+.input_keyword input::placeholder {
+    font-family: 'Poppins', sans-serif;
+}
+
+.input_keyword input:focus {
+    outline: 3px solid var(--accent-color);
+}
+
+.input_keyword a {
+    width: 50%;
+    height: auto;
+    padding: 5px 0;
+    border-radius: 2px;
+    text-align: center;
+}
+
+.input_keyword_buttons {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+    margin: 10px;
+}
+
+.input_keyword_buttons .input_keyword_buttons_whitelist {
+    background-color: rgb(74, 184, 53);
+    margin-right: 10px;
+}
+
+.input_keyword_buttons .input_keyword_buttons_blacklist {
+    background-color: rgb(146, 35, 35);
+}
+
+.filters_list {
+    padding: 0px 20px 10px;
+    display: flex;
+    justify-content: space-around;
+    height: auto;
+}
+
+.filters_list .whitelist, .filters_list .blacklist {
+    display: block;
+    width: 50%;
+    margin: 10px;
+}
+
+.filters_list .whitelist p, .filters_list .blacklist p {
+    color: var(--title-color);
+    border-bottom: 1px solid var(--title-color);
+}
+
+.game {
+    grid-area: game;
+}
+
+.game img {
+    width: 100%;
+    margin: 5px 0;
+    height: auto;
+}
+
+.game .game_header {
+    padding: 20px 20px 0px;
+    display: flex;
+    flex-direction: column;
+}
+
+.game .game_header p {
+    color: var(--title-color);
+}
+
+.game .game_header h1, .game .game_header h2 {
+    padding: 0;
+}
+
+.search {
+    grid-area: search;
+    background-color: var(--content-background);
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.steam_link {
+    display: block;
+}
+
+.links {
+    height: auto;
+    display: flex;
+    margin: 10px 0;
+}
+
+.links a{
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: var(--text-color);
+    background-color: #091013;
+}
+
+.search_button {
+    margin: 10px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: black;
+    background-color: var(--accent-color);
+}
+
+@media screen and (max-width: 700px) {
+    .container {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        "filter"
+        "game"
+        "search";
+    }
+}
