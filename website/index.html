@@ -6,6 +6,7 @@
     <title>INdiePACman</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
     <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
 </head>
 <body>
     <div class="nav">
@@ -18,46 +19,45 @@
     <div class="container">
         <div class="content filter">
             <h1>Filters</h1>
-            <div class="input_keyword">
-                <input type="text" placeholder="Input keyword">
-                <div class="input_keyword_buttons">
-                    <a class="input_keyword_buttons_whitelist"><i class="fa fa-plus" aria-hidden="true"></i></a>
-                    <a class="input_keyword_buttons_blacklist"><i class="fa fa-minus" aria-hidden="true"></i></i></a>
+            <div class="filter_wrapper">
+                <div class="input_keyword">
+                    <select id="js--select-genres">
+                        <option selected disabled value="">Select Genre</option>
+                      </select>
+                    <div class="input_keyword_buttons">
+                        <a id="button_whitelist" class="input_keyword_buttons_whitelist"><i class="fa fa-plus" aria-hidden="true"></i></a>
+                        <a id="button_blacklist" class="input_keyword_buttons_blacklist"><i class="fa fa-minus" aria-hidden="true"></i></i></a>
+                    </div>
                 </div>
-            </div>
-            <div class="filters_list">
-                <div class="whitelist">
-                    <p>Whitelist</p>
-                    <ul>
-                        <li>Action</li>
-                        <li>Indie</li>
-                        <li>Racing</li>
-                    </ul>
-                </div>
-                <div class="blacklist">
-                    <p>Blacklist</p>
-                    <ul>
-                        <li>MMORPG</li>
-                    </ul>
+                <div class="filters_list">
+                    <div class="whitelist">
+                        <p>Whitelist</p>
+                        <ul id="js--whitelist">
+                        </ul>
+                    </div>
+                    <div class="blacklist">
+                        <p>Blacklist</p>
+                        <ul id="js--blacklist">
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
 
         <div class="content game">
-            <div class="game_header">
-                <h1>Recommended Game</h1>
-                <p>Games are recommended based on popularity and genre blablabla</p>
-                <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/252950/header.jpg" alt="">
-                <h2>Rocket League</h2>
-                <p>Genres: Action, Indie, Racing</p>
-                <div class="links">
-                    <a>Steam</a>
-                </div>
+            <h1>Games</h1>
+            <div class="games_header">
+                <p>Cover</p>
+                <p>Title</p>
+                <p>Genres</p>
+                <p>Steam</p>
+            </div>
+            <div class="games_list" id="js--games_list">
             </div>
         </div>
 
         <div class="search">
-            <div class="search_button">
+            <div class="search_button" id="js--search_button">
                 <a>Recommend me a game!</a>
             </div>
         </div>
