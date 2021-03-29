@@ -216,8 +216,8 @@ window.addEventListener("load", () => {
         return text;
     }
 
-    // Page on load
-    // Create DOM for genre item
+    // Deelproduct: DOM
+    // Create HTML element when genre is added to white- or blacklist
     function createGenreElement(genre_name) {
         let element = document.createElement("li");
         element.textContent = genre_name;
