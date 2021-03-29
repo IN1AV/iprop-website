@@ -9,8 +9,11 @@ window.addEventListener("load", () => {
 
     const game_list = document.getElementById("js--games_list");
 
+    // Array with all the games recommended already
     var recommended = [];
 
+    // Deelproduct: White- en Blacklist Games
+    // Add to genre to whitelist
     function add_whitelist() {
         let value = select_genres.value;
         if (value != "") {
@@ -23,6 +26,8 @@ window.addEventListener("load", () => {
         }
     }
 
+    // Deelproduct: White- en Blacklist Games
+    // Add to genre to blacklist
     function add_blacklist() {
         let value = select_genres.value;
         if (value != "") {
@@ -35,6 +40,8 @@ window.addEventListener("load", () => {
         }
     }
 
+    // Deelproduct: White- en Blacklist Games
+    // Remove genre from white- and blacklist
     function remove_filter(genre_name) {
         let whitelist_tags = whitelist.getElementsByTagName("li");
         for (let x = 0; x < whitelist_tags.length; x++) {
@@ -55,12 +62,9 @@ window.addEventListener("load", () => {
         }
     }
 
-    function createGenreElement(genre_name) {
-        let element = document.createElement("li");
-        element.textContent = genre_name;
-        return element;
-    }
-
+    // Deelproduct: White- en Blacklist Games
+    // false: After adding genre make it unselectable in dropdown menu
+    // true: After removing genre make it available in dropdown menu for the genre to be selected
     function setAvailabillity(visible, genre_name) {
         for (let x = 0; x < select_genres.length; x++) {
             if (select_genres[x].value == genre_name) {
@@ -77,6 +81,8 @@ window.addEventListener("load", () => {
         }
     }
 
+    // Deelproduct: Button GET/POST Request
+    // Initializes the API Request with or without FormData
     function recommendgame() {
         let whitelist_array = ArrayToString([].slice.call(whitelist.getElementsByTagName("li")).map(x => x.textContent));
         let blacklist_array = [].slice.call(blacklist.getElementsByTagName("li")).map(x => x.textContent);
@@ -105,6 +111,8 @@ window.addEventListener("load", () => {
         });
     }
 
+    // Deelproduct: Button GET/POST Request
+    // Choose a random game from all the games given back
     function choose_random(data, blacklist) {
         // Check if there if the first object is an array, is api is giving the object instead of array when using whitelist
         let games = data["games"];
@@ -135,6 +143,8 @@ window.addEventListener("load", () => {
         addtoWebsite(random_game);
     }
 
+    // Deelproduct: Interface
+    // Append DOM to HTML
     function addtoWebsite(game) {
         let element = create_game_card(game);
         game_list.prepend(element);
@@ -144,6 +154,8 @@ window.addEventListener("load", () => {
         }, 200)
     }
 
+    // Deelproduct: DOM
+    // Create HTML element using the game information
     function create_game_card(game) {
         let div = document.createElement("div");
         div.setAttribute("class", "games_entry");
@@ -190,6 +202,8 @@ window.addEventListener("load", () => {
         return div
     }
 
+    // Deelproduct: Button GET/POST Request
+    // Converts array into a string used to send the API the whitelist in proper format
     function ArrayToString(data) {
         let text = '[';
         for(let x = 0; x < data.length; x++ ) {
@@ -202,6 +216,16 @@ window.addEventListener("load", () => {
         return text;
     }
 
+    // Page on load
+    // Create DOM for genre item
+    function createGenreElement(genre_name) {
+        let element = document.createElement("li");
+        element.textContent = genre_name;
+        return element;
+    }
+
+    // Page on load
+    // Adds all the avaliable genres in de dropdown selection
     function init() {
         fetch("http://127.0.0.1:8000/genres").then((response) => {
             return response.json();
